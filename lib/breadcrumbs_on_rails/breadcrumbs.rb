@@ -88,7 +88,7 @@ module BreadcrumbsOnRails
 
       def render_element(element)
         content = @context.link_to_unless_current(compute_name(element), compute_path(element), element.options)       
-        if @context.current_page?
+        if @context.current_page? compute_path(element)
           @context.content_tag(:li, content, :class => "current" )
         else
           @context.content_tag(:li, content)
